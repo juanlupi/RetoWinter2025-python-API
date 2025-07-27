@@ -6,13 +6,13 @@
 
 Este proyecto es una API Flask que proporciona información sobre Pokémons, incluyendo horóscopos Pokémon basados en fechas de nacimiento, búsqueda de Pokémon y gestión de favoritos.
 
-## Características principales
+## Características principales ✨
 - **Horóscopo Pokémon**: Obtén tu Pokémon según tu signo zodiacal.
 - **Búsqueda de Pokémon**: Encuentra Pokémon por nombre o tipo.
 - **Favoritos**: Guarda tus Pokémon favoritos por usuario.
 - **API RESTful**: Endpoints claros y documentados
 
-## Tecnologías utilizadas
+## Tecnologías utilizadas ⚙️
 - Python
 - Flask
 - SQLAlchemy (SQLite)
