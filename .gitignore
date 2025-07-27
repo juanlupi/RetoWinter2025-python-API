@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+*.py,cover
+.pytest_cache/
+.venv/
+venv/
+env/
+
+# Docker
+docker-compose.override.yml
+
+# Database
+*.db
+*.sqlite
+
+# Environment variables
+.env
+.env.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+logs/
+
+# Local development files
+instance/
+local_settings.py
+
+# Cache
+.cache/
+
+# Uploads (if your app handles file uploads)
+uploads/
