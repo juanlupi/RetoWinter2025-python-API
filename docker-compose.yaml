@@ -1,3 +1,5 @@
+version: '3.8'
+
 services:
   web:
     build:
@@ -6,6 +8,8 @@ services:
     ports:
       - "5000:5000"
     environment:
-      - FLASK_ENV=development
+      - DATABASE_URL=sqlite:////app/instance/favorites.db
+    volumes:
+      - ./instance:/app/instance  # Persist database
     command: flask run --host=0.0.0.0
     restart: unless-stopped

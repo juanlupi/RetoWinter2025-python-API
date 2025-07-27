@@ -35,7 +35,7 @@ class ZodiacService:
 
     @classmethod
     def parse_date(cls, date_str: str) -> datetime.date:
-        """Parse date from dd/mm/yyyy format"""
+        # Parse date from dd/mm/yyyy format
         try:
             return datetime.strptime(date_str, '%d/%m/%Y').date()
         except ValueError:
@@ -43,10 +43,9 @@ class ZodiacService:
 
     @classmethod
     def get_zodiac_sign(cls, birth_date: str) -> str:
-        """
-        Calculate zodiac sign based on birth date
-        Format: DD/MM/YYYY
-        """
+        # Calculate zodiac sign based on birth date
+        # Format: DD/MM/YYYY
+
         date_obj = cls.parse_date(birth_date)
         month_day = (date_obj.month, date_obj.day)
 
@@ -66,5 +65,5 @@ class ZodiacService:
 
     @classmethod
     def get_pokemon_for_sign(cls, sign: str) -> str:
-        """Get the associated Pokémon for a zodiac sign"""
+        # Get the associated Pokémon for a zodiac sign
         return cls.POKEMON_BY_SIGN.get(sign.lower(), 'pikachu')

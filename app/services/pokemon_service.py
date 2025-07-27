@@ -19,16 +19,14 @@ class PokemonService:
             dict: Pokémon details including name, image, types, etc.
         """
         try:
-            # Make request to PokeAPI
             response = requests.get(
                 f"{cls.BASE_URL}/pokemon/{pokemon_name.lower()}",
                 timeout=5
             )
-            response.raise_for_status()  # Raises exception for 4XX/5XX responses
+            response.raise_for_status()
 
             pokemon_data = response.json()
 
-            # Extract relevant information
             return {
                 'name': pokemon_data['name'],
                 'image': pokemon_data['sprites']['front_default'],
@@ -48,7 +46,13 @@ class PokemonService:
     @lru_cache(maxsize=128)
     def search_pokemon(cls, name: str = None, type: str = None) -> list:
         """
-        Search Pokémon by name and/or type with proper fallback logic
+        Search Pokémon by name and/or type
+        Args:
+            name (str): Name of the Pokémon to look up
+            type (str): Type of Pokémon to look up
+        Returns:
+            dict: Pokémon details including name, image, types, etc, in case of being an exact match
+            dict[]: Pokémons details including name, image, types, etc, of the first 10 matching pokemons
         """
         try:
             # Validate at least one search parameter exists

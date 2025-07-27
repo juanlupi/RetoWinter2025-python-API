@@ -9,20 +9,36 @@ from datetime import datetime
 class HoroscopeController:
     @staticmethod
     def format_date_for_display(date_str: str) -> str:
-        """Convert from DD/MM/YYYY to YYYY-MM-DD for consistent display"""
+        """
+        Convert date string from DD/MM/YYYY format to YYYY-MM-DD format.
+        Args:
+            date_str (str): Date string in DD/MM/YYYY format
+        Returns:
+            str: Date string in YYYY-MM-DD format
+        """
         day, month, year = date_str.split('/')
         return f"{year}-{month}-{day}"
 
     @staticmethod
     def get_horoscope(request: HoroscopeRequest) -> HoroscopeResponse:
+        """
+        Get Pokémon horoscope based on birth date with full error handling.
+        Args:
+            request (HoroscopeRequest): Validated request containing:
+                - name (str): User's name
+                - fecha_nacimiento (str): Birth date in DD/MM/YYYY format
+        Returns:
+            HoroscopeResponse: Contains:
+                - name (str): User's name
+                - birth_date (str): Original DD/MM/YYYY format
+                - zodiac_sign (str): Calculated zodiac sign
+                - pokemon (dict): Complete Pokémon details
+        """
         try:
-            # Get zodiac sign
             sign = ZodiacService.get_zodiac_sign(request.fecha_nacimiento)
 
-            # Get associated Pokémon name
             pokemon_name = ZodiacService.get_pokemon_for_sign(sign)
 
-            # Get Pokémon details from PokeAPI
             pokemon_data = PokemonService.get_pokemon_details(pokemon_name)
 
             return HoroscopeResponse(
