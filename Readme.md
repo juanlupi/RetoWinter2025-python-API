@@ -37,7 +37,9 @@ Body: {"nombre": "{userName}", "fecha_nacimiento": "{birthDate}"}
 ### Búsqueda de Pokémon
 ```
 GET /v1/pokemon?nombre={pokemonName}&tipo={pokemonType}
+
 GET /v1/pokemon?nombre={pokemonName}
+
 GET /v1/pokemon?tipo={pokemonType}
 ```
 ### Favoritos
