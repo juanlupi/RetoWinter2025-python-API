@@ -113,8 +113,8 @@ RetoWinter2025-python-API/
 
 ```
 # 1. Clonar repositorio
-git clone https://github.com/tu-usuario/pokemon-api.git
-cd pokemon-api
+git clone https://github.com/tu-usuario/RetoWinter2025-python-API.git
+cd RetoWinter2025-python-API
 
 # 2. Iniciar contenedores
 docker-compose up -d --build
